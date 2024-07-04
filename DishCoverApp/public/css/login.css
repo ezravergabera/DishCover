@@ -1,7 +1,6 @@
 body {
     font-family: 'Knewave', cursive;
     background-color: #fdf5e6;
-    margin-top: 56px; 
     background-image: url('../images/bg.png'); 
     background-repeat: repeat; 
     position: relative; 
@@ -12,7 +11,9 @@ body {
 }
 
 .navbar {
+    padding: .5rem 10rem .5rem 10rem;
     background-color: #bd7c52 !important;
+    height: 62px;
 }
 
 .navbar-nav .nav-item .nav-link {
@@ -36,7 +37,24 @@ body {
     margin-left: 20px;
     font-family: 'Knewave', cursive;
 }
+.navbar-login{
+    font-size: 24px;
+    color: #fff !important;
+    font-family: 'Knewave', cursive;
+    text-decoration: none;
+    padding: 5px 30px;
+    background-color: #8e543a;
+    border-radius: 30px;
+}
 
+.navbar-signup{
+    font-size: 24px;
+    color: #fff !important;
+    font-family: 'Knewave', cursive;
+    text-decoration: none;
+    padding: 5px 30px;
+    border-radius: 30px;
+}
 .navbar-toggler {
     color: #fff;
     margin-right: 20px;
@@ -45,7 +63,8 @@ body {
 .user-menu {
     display: flex;
     align-items: center;
-    margin-right: 20px !important;
+    margin-left: auto;
+    margin-right: 20px;
 }
 
 .user-menu .user-icon {
@@ -81,11 +100,75 @@ main {
         font-size: 150px;
         margin-top: 10%;
     }
+    .forgotPassword{
+        margin-left: auto;
+        color: #8e543a;
+        text-decoration: none;
+    }
 }
 
 .input-wrapper {
     position: relative;
     width: 100%;
+}
+
+
+.email-container, .password-container, .button-login-container{
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(228, 169, 131, 0.58);
+    border-radius: 40px; 
+    padding: 1rem;
+}
+.email-container input, .password-container input, .button-login-container input{
+    width: 100%;
+    max-width: 100%;
+    font-size: 18px;
+    border: none;
+    border-radius: 40px;
+    font-family: 'Knewave', cursive;
+    background: transparent; 
+    color: #8e543a;
+}
+
+.email-container :focus, .password-container :focus{
+    background: transparent;
+}
+
+.error-credentials{
+    color:rgb(176, 40, 40);
+}
+
+.forgotPassword-container{
+    display: inline-block;
+} 
+.forgotPassword{
+    margin-left: 450px;
+    color: #8e543a;
+    text-decoration: none;
+}
+
+
+.btn{
+   margin: 30px;
+    padding: 20px 100px 20px 100px;
+    background-color: rgba(228, 169, 131, 0.58);
+    font-size: 25px;
+    border-color: rgba(228, 169, 131, 0.58);
+    color: #8e543a;
+    border-radius: 40px;
+}
+
+.btn:hover{
+    background-color: rgba(245, 147, 82, 0.733);
+    color: #8e543a;
+    border-color: rgba(228, 169, 131, 0.58);
 }
 
 .input-wrapper i {

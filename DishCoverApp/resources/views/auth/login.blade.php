@@ -1,4 +1,52 @@
-<x-guest-layout>
+@extends('layouts.layout')
+
+@section('title', 'DishCover - Log In or Sign Up')
+
+@section('style', 'css/login.css')
+
+@section('header')
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a href="{{ route('index') }}" class="navbar-brand">DishCover</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarContent"> 
+        <div class="user-menu">
+            <a href="{{ route('login') }}" class="navbar-login">Login</a>
+            <a href="{{ route('register') }}" class="navbar-signup">Signup</a>
+        </div>
+    </div>
+    </nav>
+@endsection
+
+@section('content')
+    <div class="app-name">DishCover</div>
+    <form method="POST" action="{{ route('login') }}" class="login-container">
+        @csrf
+        <div class="email-container">
+            <div class="input-wrapper">
+                <input id="email" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="Email Address" class="form-control">
+            </div>
+        </div>
+        <div class="password-container">
+            <div class="input-wrapper">
+                <input id="password" type="password" name="password" required autofocus autocomplete="current-password" placeholder="Password" class="form-control">
+            </div>
+        </div>
+        <div class="forgotPassword-container">
+            <a href="{{ route('password.request') }}" class="forgotPassword">Forgot Password?</a>
+        </div>
+        <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        <div class="login-button-container">
+            <button type="submit" class="btn btn-primary btn-block">{{ __('Log in') }}</button>
+        </div>
+    </form>
+    <div class="bg1-container"></div>
+@endsection
+ 
+{{--<x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -44,4 +92,4 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+</x-guest-layout> --}}

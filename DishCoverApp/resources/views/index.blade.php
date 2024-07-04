@@ -15,21 +15,21 @@
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('login') }}">Home</a>
+                    <a class="nav-link" href="{{ route('index') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Saved Recipe</a>
+                    <a class="nav-link inactive" href="#">Saved Recipe</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Meal Plan</a>
+                    <a class="nav-link inactive" href="#">Meal Plan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Grocery List</a>
+                    <a class="nav-link inactive" href="#">Grocery List</a>
                 </li>
             </ul>
             <div class="user-menu">
                 <i class="fa-solid fa-user user-icon"></i>
-                <a href="{{route('profile.edit')}}">Profile</a>
+                <a href="{{route('login')}}">Login</a>
             </div>
         </div>
     </nav>

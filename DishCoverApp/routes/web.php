@@ -16,18 +16,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    if(Auth::user()) {
+        return view('search.index');
+    }
+    return view('index');
+})->name('index');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect('search');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/search', function () {
-    return view('search.index');
-})->name('search');
-
 Route::middleware('auth')->group(function () {
+    Route::get('/search', function () {
+        return view('search.index');
+    })->name('search');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
