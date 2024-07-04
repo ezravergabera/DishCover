@@ -1,1 +1,4 @@
 *.code-workspace
+oldFiles
+png
+*.py
