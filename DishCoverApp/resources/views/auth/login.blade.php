@@ -34,9 +34,6 @@
                 <input id="password" type="password" name="password" required autofocus autocomplete="current-password" placeholder="Password" class="form-control">
             </div>
         </div>
-        <div class="forgotPassword-container">
-            <a href="{{ route('password.request') }}" class="forgotPassword">Forgot Password?</a>
-        </div>
         <x-input-error :messages="$errors->get('email')" class="mt-2" />
         <x-input-error :messages="$errors->get('password')" class="mt-2" />
         <div class="login-button-container">
