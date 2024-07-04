@@ -1,0 +1,155 @@
+body {
+    font-family: 'Knewave', cursive;
+    background-color: #fdf5e6;
+    margin-top: 56px; 
+    background-image: url('../images/bg.png'); 
+    background-repeat: repeat; 
+    position: relative; 
+}
+
+.container {
+    text-align: center;
+}
+
+.navbar {
+    background-color: #bd7c52 !important;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #fff !important;
+    font-family: 'Knewave', cursive;
+    font-size: 20px;
+}
+
+.nav-item:hover {
+    background-color: #9b6543;
+    border-radius: 50%;
+}
+
+.navbar-nav .nav-item {
+    margin: 0 10px;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    color: #fff !important;
+    margin-left: 20px;
+    font-family: 'Knewave', cursive;
+}
+
+.navbar-toggler {
+    color: #fff;
+    margin-right: 20px;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    margin-right: 20px !important;
+}
+
+.user-menu .user-icon {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #fff !important;
+}
+
+.user-menu a {
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Knewave', cursive;
+}
+
+main {
+    text-align: center;
+    padding: 20px;
+}
+
+.app-name {
+    font-size: 15vw;
+    color: #6b8e23;
+    font-family: 'Knewave', cursive;
+    text-align: center;
+    margin-top: 15%;
+    position: relative;
+    z-index: 1; 
+}
+
+@media (min-width: 768px) {
+    .app-name {
+        font-size: 150px;
+        margin-top: 10%;
+    }
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.input-wrapper i {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #8e543a;
+    pointer-events: none;
+}
+
+.search-container {
+    display: inline-block;
+    margin: 10px auto;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(228, 169, 131, 0.58);
+    border-radius: 50px; 
+}
+
+.search-container input {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 10px 10px 40px;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Knewave', cursive;
+    background: transparent; 
+    color: #8e543a;
+}
+
+.search-container input::placeholder {
+    color: #8e543a;
+}
+
+.search-container:hover {
+    background-color: rgba(245, 147, 82, 0.733);
+}
+
+@media (min-width: 576px) {
+    .search-container input {
+        padding-left: 50px;
+    }
+}
+
+@media (min-width: 768px) {
+    .search-container input {
+        padding-left: 60px;
+    }
+}
+
+.bg1-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../images/bg1.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center bottom;
+    z-index: -1;
+}
