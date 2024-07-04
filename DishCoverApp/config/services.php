@@ -31,4 +31,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'edamam' => [
+        'app_id' => env('EDAMAM_APP_ID'),
+        'api_key' => env('EDAMAM_API_KEY'),
+    ],
+
 ];

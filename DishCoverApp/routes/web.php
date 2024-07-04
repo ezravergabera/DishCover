@@ -26,6 +26,8 @@ Route::get('/dashboard', function () {
     return redirect('search');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/search/recipes', [RecipeController::class, 'search'])->name('search.recipes');
+
 Route::middleware('auth')->group(function () {
     Route::get('/search', function () {
         return view('search.index');
