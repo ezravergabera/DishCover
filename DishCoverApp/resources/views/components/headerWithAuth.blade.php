@@ -15,7 +15,7 @@
                 <a class="nav-link" href="{{ route('savedRecipes.index') }}">Saved Recipe</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Meal Plan</a>
+                <a class="nav-link inactive" href="#">Meal Plan</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('grocery.index') }}">Grocery List</a>
