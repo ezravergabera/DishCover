@@ -23,6 +23,7 @@ body {
 
 .navbar-nav .nav-item .nav-link.inactive {
     color: hsl(0, 0%, 100%, 40%) !important;
+    cursor: default;
 }
 
 .navbar-nav .nav-item .nav-link:not(.inactive):hover {
