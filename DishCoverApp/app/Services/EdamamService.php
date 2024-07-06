@@ -4,6 +4,8 @@ namespace App\Services;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Http;
+use App\Models\Grocery;
+use Illuminate\Support\Facades\Auth;
 
 class EdamamService
 {
@@ -21,12 +23,19 @@ class EdamamService
     public function searchRecipes($query)
     {
         $url = 'https://api.edamam.com/search';
+
+        $userId = Auth::id();
+        $userIngredients = Grocery::where('user_id', $userId)->pluck('ingredient_name')->toArray();
+        $ingredientQuery = implode(',', $userIngredients);
+
+        $combinedQuery = !empty($query) ? ($query . ', ' . $ingredientQuery) : $ingredientQuery;
+
         $params = [
-            'q' => $query,
+            'q' => $combinedQuery,
             'app_id' => config('services.edamam.app_id'),
             'app_key' => config('services.edamam.api_key'),
             'from' => '0',
-            'to' => '10'
+            'to' => '10',
         ];
 
         \Log::info('API Request', ['url' => $url, 'params' => $params]);
