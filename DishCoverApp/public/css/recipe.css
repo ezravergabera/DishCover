@@ -27,6 +27,7 @@ body {
 
 .navbar-nav .nav-item .nav-link.inactive {
     color: hsl(0, 0%, 100%, 40%) !important;
+    cursor: default;
 }
 
 .navbar-nav .nav-item .nav-link:not(.inactive):hover {
@@ -167,14 +168,6 @@ main {
     z-index: -1;
 }
 
-.card-body {
-    background-color: #C68B65;
-}
-
-.card-title {
-    color: #FFEEE3;
-}
-
 .recipe {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
     border-radius: 0.25rem;
@@ -182,14 +175,74 @@ main {
     overflow: hidden;
 }
 
-.recipe img {
+.recipe .image-container {
+    position: relative;
+}
+
+.recipe .card-img-top {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    object-fit: block;
+}
+
+.recipe .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.recipe .image-container:hover .overlay {
+    opacity: 1;
+}
+
+.recipe .overlay .button {
+    margin: 5px;
+    padding: 10px 20px;
+    width: 10rem;
+    background-color: hsl(23, 40%, 44%, 50%);
+    color: #FFEEE3;
+    font-size: large;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.recipe .overlay .button-inactive {
+    margin: 5px;
+    padding: 10px 20px;
+    width: 10rem;
+    background-color: hsl(23, 40%, 44%, 50%);
+    color: hsl(24, 100%, 95%);
+    opacity: 0.4;
+    font-size: large;
+    border: none;
+    border-radius: .5rem;
+    cursor: default;
+    text-decoration: none;
+}
+
+.recipe .overlay a {
+    color: #FFEEE3;
+    text-decoration: none;
 }
 
 .recipe .card-body {
     padding: 1rem;
+    background-color: #C68B65;
+}
+
+.card-title {
+    color: #FFEEE3;
 }
 
 .stretched-link {

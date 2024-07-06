@@ -5,51 +5,7 @@
 @section('style', 'css/recipe.css')
 
 @section('header')
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a href="{{ route('index') }}" class="navbar-brand">DishCover</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
-            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarContent">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('index') }}">Home</a>
-                </li>
-                @auth
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Saved Recipe</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Meal Plan</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Grocery List</a>
-                </li>
-                @else
-                <li class="nav-item">
-                    <a class="nav-link inactive" href="#">Saved Recipe</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link inactive" href="#">Meal Plan</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link inactive" href="#">Grocery List</a>
-                </li>
-                @endauth
-            </ul>
-            <div class="user-menu">
-                @auth
-                    <i class="fa-solid fa-user user-icon"></i>
-                    <a href="{{ route('profile.edit') }}">Profile</a>
-                @else
-                    <i class="fa-solid fa-user user-icon"></i>
-                    <a href="{{ route('login') }}">Login</a>
-                @endauth
-            </div>
-        </div>
-    </nav>
+    @include('components.headerWithAuth')
 @endsection
 
 @section('content')
@@ -62,24 +18,64 @@
 
     <h1 class="search-results-label">Search Results</h1>
 
+    <div class="modal fade" id="statusModal" tabindex="-1" aria-labelledby="statusModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="statusModalLabel">Save Recipe Status</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    @if(session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    @if(session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     @if(isset($recipes['hits']) && is_array($recipes['hits']))
     <div class="container">
         <div class="row">
             @foreach($recipes['hits'] as $hit)
                 @if(isset($hit['recipe']))
                     <div class="col-xxl-5th col-md-6 col-lg-4 col-xl-3 mb-4">
-                        <a href="{{ $hit['recipe']['url'] }}" target="_blank" class="text-decoration-none">
-                            <div class="card recipe">
+                        <div class="card recipe">
+                            <div class="image-container">
                                 @if(isset($hit['recipe']['image']))
                                     <img src="{{ $hit['recipe']['image'] }}" class="card-img-top" alt="{{ $hit['recipe']['label'] ?? 'Recipe Image' }}">
-                                @endif
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $hit['recipe']['label'] ?? 'No Label' }}</h5>
-                                    <!-- pwede pa mag add dito -->
+                                    @endif
+                                <div class="overlay">
+                                    <a href="{{ $hit['recipe']['url'] }}" target="_blank" class="button">View</a>
+                                    @auth
+                                        <form method="POST" action="{{ route('recipes.store') }}">
+                                            @csrf
+                                            <input type="hidden" name="recipe_image" value="{{ $hit['recipe']['image'] }}">
+                                            <input type="hidden" name="recipe_label" value="{{ $hit['recipe']['label'] }}">
+                                            <input type="hidden" name="recipe_ingredients" value="{{ json_encode($hit['recipe']['ingredientLines']) }}">
+                                            <input type="hidden" name="recipe_url" value="{{ $hit['recipe']['url'] }}">
+                                            <input type="submit" class="button" value="Save Recipe"></input>
+                                        </form>
+                                    @else
+                                        <button class="button-inactive">Save Recipe</button>
+                                    @endauth
                                 </div>
-                                <span class="stretched-link"></span>
                             </div>
-                        </a>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $hit['recipe']['label'] ?? 'No Label' }}</h5>
+                            </div>
+                        </div>
                     </div>
                 @endif
             @endforeach
@@ -90,4 +86,16 @@
     @endif
 
     <link rel="stylesheet" href="{{ asset('css/recipe.css') }}">
+@endsection
+
+@section('script')
+    @parent
+    @if(session('success') || session('error'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var statusModal = new bootstrap.Modal(document.getElementById('statusModal'));
+                statusModal.show();
+            });
+        </script>
+    @endif
 @endsection
