@@ -18,7 +18,7 @@
                 <a class="nav-link" href="#">Meal Plan</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Grocery List</a>
+                <a class="nav-link" href="{{ route('grocery.index') }}">Grocery List</a>
             </li>
             @else
             <li class="nav-item">
