@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('recipe_image')->nullable();
+            $table->text('recipe_image')->nullable();
             $table->string('recipe_label');
             $table->json('recipe_ingredients');
-            $table->string('recipe_url')->nullable();
+            $table->text('recipe_url')->nullable();
             $table->timestamps();
         });
     }
