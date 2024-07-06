@@ -26,13 +26,16 @@ Route::get('/dashboard', function () {
     return redirect('search');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/search/recipes', [RecipeController::class, 'search'])->name('search.recipes');
+Route::get('/search/recipes', [RecipeController::class, 'search'])->name('recipes.search');
 
 Route::middleware('auth')->group(function () {
     Route::get('/search', function () {
         return view('search.index');
     })->name('search');
-
+    
+    Route::post('/search/recipes', [RecipeController::class,'store'])->name('recipes.store');
+    Route::get('/saved-recipes', [RecipeController::class,'index'])->name('savedRecipes.index');
+    
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

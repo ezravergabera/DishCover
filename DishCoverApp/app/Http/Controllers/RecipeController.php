@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
 use App\Services\EdamamService;
+use Illuminate\Support\Facades\Auth;
 
 class RecipeController extends Controller
 {
@@ -25,34 +26,12 @@ class RecipeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        // // try {
-        //     $response = Http::get('https://api.edamam.com/search', [
-        //         'q' => $request->query('q', ''),
-        //         'app_id' => config('services.edamam.app_id'),
-        //         'app_key' => config('services.edamam.app_key'),
-        //         'from' => 0,
-        //         'to' => 10
-        //     ]);
-    
-        //     // $response->throw();
+        $user = Auth::user();
+        $recipes = Recipe::where('user_id', $user->id)->get();
 
-        //     dump([
-        //         'app_id' => config('services.edamam.app_id'),
-        //         'app_key' => config('services.edamam.api_key')
-        //     ]);
-    
-        //     $recipes = $response->json();
-            
-        //     dump($recipes);
-    
-        //     // return view("search.recipes", ['recipes' => $recipes]);
-        // // } catch (\Exception $e) {
-        // //     // Log the error and return an error view or redirect
-        // //     \Log::error('Edamam API error: ' . $e->getMessage());
-        // //     return view("search.error", ['message' => 'An error occurred while fetching recipes.']);
-        // // }
+        return view('savedRecipes.index', ['recipes'=> $recipes]);
     }
 
     /**
@@ -68,7 +47,32 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'recipe_image'=> 'nullable|string',
+            'recipe_label'=> 'required|string',
+            'recipe_ingredients'=> 'required|json',
+            'recipe_url'=> 'nullable|string',
+        ]);
+
+        $userId = Auth::id();
+
+        $existingRecipe = Recipe::where('recipe_label', $data['recipe_label'])
+                                ->where('user_id', $userId)
+                                ->first();
+
+        if ($existingRecipe) {
+            return back()->with('error', 'Recipe is already saved for this user.');
+        }
+
+        $recipe = Recipe::create([
+            'user_id' => $userId,
+            'recipe_image' => $data['recipe_image'],
+            'recipe_label' => $data['recipe_label'],
+            'recipe_ingredients' => json_decode($data['recipe_ingredients'], true),
+            'recipe_url' => $data['recipe_url'],
+        ]);
+
+        return back()->with('success', 'Recipe saved successfully.');
     }
 
     /**
