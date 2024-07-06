@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GroceryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecipeController;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +37,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/saved-recipes', [RecipeController::class,'index'])->name('savedRecipes.index');
     Route::post('/search/recipes', [RecipeController::class,'store'])->name('recipes.store');
     Route::delete('/saved-recipes/{recipe}', [RecipeController::class,'destroy'])->name('savedRecipes.destroy');
+
+    Route::get('/grocery-list', [GroceryController::class, 'index'])->name('grocery.index');
+    Route::post('/grocery-list', [GroceryController::class, 'store'])->name('grocery.store');
+    Route::put('/grocery-list/{name}/update-quantity', [GroceryController::class, 'updateQuantity'])->name('grocery.updateQuantity');
     
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
