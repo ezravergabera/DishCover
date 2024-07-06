@@ -61,6 +61,7 @@
                                     @auth
                                         <form method="POST" action="{{ route('recipes.store') }}">
                                             @csrf
+                                            @method('post')
                                             <input type="hidden" name="recipe_image" value="{{ $hit['recipe']['image'] }}">
                                             <input type="hidden" name="recipe_label" value="{{ $hit['recipe']['label'] }}">
                                             <input type="hidden" name="recipe_ingredients" value="{{ json_encode($hit['recipe']['ingredientLines']) }}">

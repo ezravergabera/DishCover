@@ -104,6 +104,8 @@ class RecipeController extends Controller
      */
     public function destroy(Recipe $recipe)
     {
-        //
+        $recipe->delete();
+
+        return redirect(route('savedRecipes.index'))->with('success', 'Saved Recipe Removed.');
     }
 }

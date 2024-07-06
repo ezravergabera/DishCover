@@ -32,7 +32,11 @@
                                 @endif
                                 <div class="overlay">
                                     <a href="{{ $recipe->recipe_url }}" target="_blank" class="button">View</a>
-                                    <button class="button">Remove Recipe</button>
+                                    <form method="POST" action="{{ route('savedRecipes.destroy', ['recipe' => $recipe]) }}">
+                                        @csrf
+                                        @method('delete')
+                                        <input type="submit" class="button" value="Remove Recipe"></input>
+                                    </form>
                                 </div>
                             </div>
                             <div class="card-body">

@@ -33,8 +33,9 @@ Route::middleware('auth')->group(function () {
         return view('search.index');
     })->name('search');
     
-    Route::post('/search/recipes', [RecipeController::class,'store'])->name('recipes.store');
     Route::get('/saved-recipes', [RecipeController::class,'index'])->name('savedRecipes.index');
+    Route::post('/search/recipes', [RecipeController::class,'store'])->name('recipes.store');
+    Route::delete('/saved-recipes/{recipe}', [RecipeController::class,'destroy'])->name('savedRecipes.destroy');
     
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
