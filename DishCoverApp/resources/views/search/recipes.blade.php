@@ -45,45 +45,45 @@
         </div>
     </div>
 
-    @if(isset($recipes['hits']) && is_array($recipes['hits']))
-    <div class="container">
-        <div class="row">
-            @foreach($recipes['hits'] as $hit)
-                @if(isset($hit['recipe']))
-                    <div class="col-xxl-5th col-md-6 col-lg-4 col-xl-3 mb-4">
-                        <div class="card recipe">
-                            <div class="image-container">
-                                @if(isset($hit['recipe']['image']))
-                                    <img src="{{ $hit['recipe']['image'] }}" class="card-img-top" alt="{{ $hit['recipe']['label'] ?? 'Recipe Image' }}">
-                                    @endif
-                                <div class="overlay">
-                                    <a href="{{ $hit['recipe']['url'] }}" target="_blank" class="button">View</a>
-                                    @auth
-                                        <form method="POST" action="{{ route('recipes.store') }}">
-                                            @csrf
-                                            @method('post')
-                                            <input type="hidden" name="recipe_image" value="{{ $hit['recipe']['image'] }}">
-                                            <input type="hidden" name="recipe_label" value="{{ $hit['recipe']['label'] }}">
-                                            <input type="hidden" name="recipe_ingredients" value="{{ json_encode($hit['recipe']['ingredientLines']) }}">
-                                            <input type="hidden" name="recipe_url" value="{{ $hit['recipe']['url'] }}">
-                                            <input type="submit" class="button" value="Save Recipe"></input>
-                                        </form>
-                                    @else
-                                        <button class="button-inactive">Save Recipe</button>
-                                    @endauth
+    @if(!empty($recipes['hits']) && is_array($recipes['hits']))
+        <div class="container">
+            <div class="row">
+                @foreach($recipes['hits'] as $hit)
+                    @if(isset($hit['recipe']))
+                        <div class="col-xxl-5th col-md-6 col-lg-4 col-xl-3 mb-4">
+                            <div class="card recipe">
+                                <div class="image-container">
+                                    @if(isset($hit['recipe']['image']))
+                                        <img src="{{ $hit['recipe']['image'] }}" class="card-img-top" alt="{{ $hit['recipe']['label'] ?? 'Recipe Image' }}">
+                                        @endif
+                                    <div class="overlay">
+                                        <a href="{{ $hit['recipe']['url'] }}" target="_blank" class="button">View</a>
+                                        @auth
+                                            <form method="POST" action="{{ route('recipes.store') }}">
+                                                @csrf
+                                                @method('post')
+                                                <input type="hidden" name="recipe_image" value="{{ $hit['recipe']['image'] }}">
+                                                <input type="hidden" name="recipe_label" value="{{ $hit['recipe']['label'] }}">
+                                                <input type="hidden" name="recipe_ingredients" value="{{ json_encode($hit['recipe']['ingredientLines']) }}">
+                                                <input type="hidden" name="recipe_url" value="{{ $hit['recipe']['url'] }}">
+                                                <input type="submit" class="button" value="Save Recipe"></input>
+                                            </form>
+                                        @else
+                                            <button class="button-inactive">Save Recipe</button>
+                                        @endauth
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $hit['recipe']['label'] ?? 'No Label' }}</h5>
                                 </div>
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $hit['recipe']['label'] ?? 'No Label' }}</h5>
-                            </div>
                         </div>
-                    </div>
-                @endif
-            @endforeach
+                    @endif
+                @endforeach
+            </div>
         </div>
-    </div>
     @else
-    <p>No recipes found.</p>
+    <h4>No recipes found.</h4>
     @endif
 
     <link rel="stylesheet" href="{{ asset('css/recipe.css') }}">
