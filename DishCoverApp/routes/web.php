@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/grocery-list', [GroceryController::class, 'index'])->name('grocery.index');
     Route::post('/grocery-list', [GroceryController::class, 'store'])->name('grocery.store');
     Route::put('/grocery-list/{name}/update-quantity', [GroceryController::class, 'updateQuantity'])->name('grocery.updateQuantity');
+    Route::delete('/grocery-list/{name}', [GroceryController::class, 'destroy'])->name('grocery.destroy');
     
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

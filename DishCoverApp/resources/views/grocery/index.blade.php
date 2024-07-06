@@ -46,8 +46,13 @@
                                     <input type="hidden" name="change" value="increment">
                                     <button class="btn btn-outline-secondary btn-sm" style="margin: 5px" type="submit">+</button>
                                 </form>
-                                <button class="btn btn-outline-danger btn-sm remove-button">
-                                <i class="fas fa-trash-alt"></i></button>
+                                <form method="POST" action="{{route('grocery.destroy', $ingredient->ingredient_name)}}">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-outline-danger btn-sm remove-button">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </form>
                             </div>
                         </td>
                     </tr>
