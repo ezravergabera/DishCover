@@ -53,7 +53,7 @@ class GroceryController extends Controller
             "quantity"=> $data["quantity"],
         ]);
 
-        return route('grocery.index', ["grocery" => $ingredient]);
+        return redirect(route('grocery.index', ["grocery" => $ingredient]));
     }
 
     /**
@@ -77,7 +77,11 @@ class GroceryController extends Controller
      */
     public function updateQuantity(Request $request, $name)
     {
-        $ingredient = Grocery::where("ingredient_name", $name)->first();
+        $userId = Auth::id();
+
+        $ingredient = Grocery::where("ingredient_name", $name)
+                                    ->where("user_id", $userId)
+                                    ->first();
 
         $change = $request->get('change');
         $quantityChange = 1;
@@ -98,8 +102,16 @@ class GroceryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Grocery $grocery)
+    public function destroy($name)
     {
-        //
+        $userId = Auth::id();
+
+        $ingredient = Grocery::where("ingredient_name", $name)
+                                ->where("user_id", $userId)
+                                ->first();
+
+        $ingredient->delete();
+
+        return redirect(route('grocery.index'))->with('success', 'Ingredient Removed.');
     }
 }
