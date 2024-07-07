@@ -2,7 +2,9 @@
 
 @section('title', 'DishCover')
 
-@section('style', 'css/recipe.css')
+@section('style')
+    <link rel="stylesheet" href="{{ asset('css/recipe.css') }}">
+@endsection
 
 @section('header')
     @include('components.headerWithAuth')
@@ -15,6 +17,33 @@
         <button class="btn btn-outline-secondary" type="button"><img src="{{asset('svg/ingredients-filter.svg')}}" height="20px"/></button>
         <button class="btn btn-outline-secondary" type="button"><img src="{{asset('images/dishcover-3-1.png')}}" height="20px"/></button>
     </div> --}}
+
+    <div class="modal fade" id="statusModal" tabindex="-1" aria-labelledby="statusModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="statusModalLabel">Remove Recipe Status</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    @if(session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    @if(session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <h1 class="search-results-label">Saved Recipes for {{Auth::user()->name}}</h1>
 
@@ -31,7 +60,7 @@
                                     <img src="{{ $recipe->recipe_image }}" class="card-img-top" alt="{{ $recipe->recipe_label }}">
                                 @endif
                                 <div class="overlay">
-                                    <a href="{{ $recipe->recipe_url }}" target="_blank" class="button">View</a>
+                                    <a href="{{ route('viewRecipe.index', ['recipe' => $recipe, 'name' => $recipe->recipe_label]) }}" target="_blank" class="button">View</a>
                                     <form method="POST" action="{{ route('savedRecipes.destroy', ['recipe' => $recipe]) }}">
                                         @csrf
                                         @method('delete')
@@ -48,6 +77,8 @@
             </div>
         </div>
     @endif
+@endsection
 
-    <link rel="stylesheet" href="{{ asset('css/recipe.css') }}">
+@section('script')
+    @include('components.modalscript')
 @endsection
