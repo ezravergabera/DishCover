@@ -53,7 +53,9 @@ class GroceryController extends Controller
             "quantity"=> $data["quantity"],
         ]);
 
-        return redirect(route('grocery.index', ["grocery" => $ingredient]));
+        $message = $data["ingredient_name"] . " has been added.";
+
+        return redirect(route('grocery.index', ["grocery" => $ingredient]))->with("add-success", $message);
     }
 
     /**
@@ -90,7 +92,10 @@ class GroceryController extends Controller
             $ingredient->quantity += $quantityChange;
         } else if ($change === 'decrement') {
             if ($ingredient->quantity > 0) {
-            $ingredient->quantity -= $quantityChange;
+                $ingredient->quantity -= $quantityChange;
+            }
+            else {
+                return back()->with('error','Quantity cannot be negative.');
             }
         }
 
@@ -112,6 +117,6 @@ class GroceryController extends Controller
 
         $ingredient->delete();
 
-        return redirect(route('grocery.index'))->with('success', 'Ingredient Removed.');
+        return redirect(route('grocery.index'))->with('delete-success', 'Ingredient Removed.');
     }
 }

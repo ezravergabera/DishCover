@@ -12,6 +12,41 @@
 
 @section('content')
     <main class="container my-4">
+        @if (session('error') || session('add-success') || session('delete-success'))
+            <div class="modal fade" id="statusModal" tabindex="-1" aria-labelledby="statusModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="statusModalLabel">Ingredient Status</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            @if(session('add-success'))
+                                <div class="alert alert-success">
+                                    {{ session('add-success') }}
+                                </div>
+                            @endif
+        
+                            @if(session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+
+                            @if(session('delete-success'))
+                                <div class="alert alert-success">
+                                    {{ session('delete-success') }}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+
         <h1>My Grocery List:</h1>
 
         <form class="add-container" method="POST" action="{{ route('grocery.store') }}">
@@ -62,4 +97,8 @@
             </tbody>
         </table>
     </main>
+@endsection
+
+@section('script')
+    @include('components.modalscript')
 @endsection
