@@ -2,7 +2,9 @@
 
 @section('title', 'DishCover')
 
-@section('style', 'css/recipe.css')
+@section('style')
+    <link rel="stylesheet" href="{{ asset('css/recipe.css') }}">
+@endsection
 
 @section('header')
     @include('components.headerWithAuth')
@@ -57,7 +59,7 @@
                                         <img src="{{ $hit['recipe']['image'] }}" class="card-img-top" alt="{{ $hit['recipe']['label'] ?? 'Recipe Image' }}">
                                         @endif
                                     <div class="overlay">
-                                        <a href="{{ $hit['recipe']['url'] }}" target="_blank" class="button">View</a>
+                                        <a href="{{ route('viewRecipeJSON.index', ['recipe' => json_encode($hit), 'name' => $hit['recipe']['label']]) }}" target="_blank" class="button">View</a>
                                         @auth
                                             <form method="POST" action="{{ route('recipes.store') }}">
                                                 @csrf
@@ -85,18 +87,8 @@
     @else
     <h4>No recipes found.</h4>
     @endif
-
-    <link rel="stylesheet" href="{{ asset('css/recipe.css') }}">
 @endsection
 
 @section('script')
-    @parent
-    @if(session('success') || session('error'))
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                var statusModal = new bootstrap.Modal(document.getElementById('statusModal'));
-                statusModal.show();
-            });
-        </script>
-    @endif
+    @include('components.modalscript')
 @endsection

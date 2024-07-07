@@ -2,7 +2,9 @@
 
 @section('title', 'DishCover - Grocery List')
 
-@section('style', 'css/grocery.css')
+@section('style')
+    <link rel="stylesheet" href="{{ asset('css/grocery.css') }}">
+@endsection
 
 @section('header')
     @include('components.headerWithAuth')
