@@ -35,7 +35,7 @@
         <div class="user-menu">
             @auth
                 <i class="fa-solid fa-user user-icon"></i>
-                <a href="{{ route('profile.edit') }}">Profile</a>
+                <a href="{{ route('profile.edit') }}">{{ Auth::user()->name }}</a>
             @else
                 <i class="fa-solid fa-user user-icon"></i>
                 <a href="{{ route('login') }}">Login</a>

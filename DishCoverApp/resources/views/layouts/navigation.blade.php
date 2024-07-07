@@ -11,10 +11,16 @@
                 </div> --}}
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                {{-- <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('index')">
                         Home
                     </x-nav-link>
+                </div> --}}
+
+                <div class="shrink-0 flex items-center">
+                    <a href="{{ route('dashboard') }}" style="font-size: 24px; color: #000000; margin-top: 0.3rem; font-family: 'Knewave', cursive;">
+                        DishCover
+                    </a>
                 </div>
             </div>
 
