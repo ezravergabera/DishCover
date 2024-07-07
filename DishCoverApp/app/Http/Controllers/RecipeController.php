@@ -78,9 +78,21 @@ class RecipeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Recipe $recipe)
+    public function showJSON(Request $request)
     {
-        //
+        $data = $request->input('recipe');
+        $recipe = json_decode($data, true);
+
+        return view('viewRecipe.index', ['recipe'=> $recipe]);
+    }
+
+    public function show(Recipe $recipe, $name)
+    {
+        $data = Recipe::where('recipe_label', $name)->firstOrFail();    
+
+        // dd($data);
+        
+        return view('viewRecipe.index', ['recipe'=> $data]);
     }
 
     /**

@@ -29,6 +29,9 @@ Route::get('/dashboard', function () {
 
 Route::get('/search/recipes', [RecipeController::class, 'search'])->name('recipes.search');
 
+Route::get('/recipe/json/{name}', [RecipeController::class, 'showJSON'])->name('viewRecipeJSON.index');
+Route::get('/recipe/{name}', [RecipeController::class, 'show'])->name('viewRecipe.index');
+
 Route::middleware('auth')->group(function () {
     Route::get('/search', function () {
         return view('search.index');

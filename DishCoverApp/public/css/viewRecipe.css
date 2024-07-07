@@ -1,0 +1,244 @@
+body {
+    font-family: 'Knewave', cursive;
+    background-color: #fdf5e6;
+    margin-top: 56px;
+    background-image: url('../images/bg.png');
+    background-repeat: repeat;
+    position: relative;
+}
+
+.container {
+    text-align: center;
+}
+
+.navbar {
+    padding: .5rem 10rem .5rem 10rem;
+    background-color: #bd7c52 !important;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #fff !important;
+    font-family: 'Knewave', cursive;
+    font-size: 20px;
+}
+
+.navbar-nav .nav-item .nav-link.inactive {
+    color: hsl(0, 0%, 100%, 40%) !important;
+    cursor: default;
+}
+
+.navbar-nav .nav-item .nav-link:not(.inactive):hover {
+    background-color: #9b6543;
+    border-radius: 50%;
+}
+
+.navbar-nav .nav-item .nav-link:not(.inactive) {
+    background-color: transparent;
+    border-radius: 50%;
+}
+
+.navbar-nav .nav-item {
+    margin: 0 10px;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    color: #fff !important;
+    margin-left: 20px;
+    font-family: 'Knewave', cursive;
+}
+
+.navbar-toggler {
+    color: #fff;
+    margin-right: 20px;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    margin-right: 20px !important;
+}
+
+.user-menu .user-icon {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #fff !important;
+}
+
+.user-menu a {
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Knewave', cursive;
+}
+
+main {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    color: #8B4513;
+    font-size: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.add-container {
+    margin-bottom: 30px;
+}
+
+.add-container button {
+    padding: 10px;
+    background-color: #4A7A00;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-container button:hover {
+    background-color: #355801;
+}
+
+.add-container input[type="text"] {
+    width: 400px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #D9A781;
+    border-radius: 5px;
+}
+
+.add-container input::placeholder {
+    color: #ad480081;
+}
+
+.table thead th {
+    color: #4A7A00;
+    font-size: 20px;
+    font-weight: lighter;
+    background-color: #D9A781;
+    border-color: #D9A781;
+}
+
+.table thead th:hover {
+    background-color: #ca8754;
+}
+
+.table tbody tr td {
+    vertical-align: middle;
+    background-color: #EACBAA;
+    border-color: #D9A781;
+}
+
+.table tbody tr td:hover {
+    background-color: #cfa06d;
+}
+
+.input-group-append .btn {
+    border: none;
+    background: none;
+}
+
+.input-group .form-control {
+    border: none;
+    box-shadow: none;
+    width: 5px;
+}
+
+.btn-outline-secondary {
+    border-color: #8B4513;
+    color: #8B4513;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #8B4513;
+    color: white;
+}
+
+.text-center button {
+    margin: 0 10px;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background-color: rgba(228, 169, 131, 0.58);
+    border-radius: 50px;
+}
+
+.input-wrapper:hover {
+    background-color: rgba(245, 147, 82, 0.733);
+}
+
+.input-wrapper input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-radius: 50px;
+    color: rgb(82, 35, 3);
+}
+
+.input-wrapper input::placeholder {
+    color: rgba(82, 35, 3, 0.603);
+}
+
+.input-wrapper button {
+    margin-left: 5px;
+    border-radius: 50px;
+}
+
+.quantity-input-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 150px;
+    margin: auto;
+}
+
+.quantity-input-group .btn {
+    margin-right: 5px;
+}
+
+.remove-button {
+    margin-left: 5px;
+}
+
+.close-button {
+    position: fixed;
+    top: 70px;
+    right: 10px;
+    z-index: 1000;
+}
+h2{
+    color: #8B4513;
+}
+
+.btn-outline-tertiary {
+    border-color: #8B4513;
+    color: #4A7A00;
+    background-color:#EACBAA;
+}
+
+.btn-outline-tertiary:hover {
+    background-color: #8B4513;
+    color: white;
+}
+
+ul{
+    text-align: left;
+}
+ol{
+    text-align: left;
+
+}
+.container .view{
+    background-color:#FFE4D0;
+}
+
+a {
+    text-decoration: none;
+    color: #8B4513;
+}
