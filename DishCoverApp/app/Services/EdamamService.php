@@ -25,7 +25,7 @@ class EdamamService
         $url = 'https://api.edamam.com/search';
 
         $userId = Auth::id();
-        $userIngredients = Grocery::where('user_id', $userId)->pluck('ingredient_name')->toArray();
+        $userIngredients = Grocery::where('user_id', $userId)->where('quantity', '>', 0)->pluck('ingredient_name')->toArray();
         $ingredientQuery = implode(',', $userIngredients);
 
         $combinedQuery = !empty($query) ? ($query . ', ' . $ingredientQuery) : $ingredientQuery;
