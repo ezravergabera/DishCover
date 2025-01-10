@@ -2,7 +2,9 @@
 
 @section('title', 'DishCover - Log In or Sign Up')
 
-@section('style', 'css/signup.css')
+@section('style')
+    <link rel="stylesheet" href="{{ asset('css/signup.css') }}">
+@endsection
 
 @section('header')
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
