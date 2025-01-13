@@ -32,16 +32,16 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+        <div class="button-container"><button class="custom-button">{{ __('Save') }}</button></div>
 
-            @if (session('status') === 'password-updated')
+        <div class="saved-container"> @if (session('status') === 'password-updated')
                 <p
                     x-data="{ show: true }"
                     x-show="show"
                     x-transition
                     x-init="setTimeout(() => show = false, 2000)"
                     class="text-sm text-gray-600"
-                >{{ __('Saved.') }}</p>
+                >{{ __('Saved.') }}</p> </div>
             @endif
         </div>
     </form>

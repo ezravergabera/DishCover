@@ -1,0 +1,185 @@
+body {
+    font-family: 'Knewave', cursive;
+    background-color: #fdf5e6;
+    background-image: url('../images/bg.png'); 
+    background-repeat: repeat; 
+    position: relative; 
+}
+
+.navbar {
+    padding: .5rem 10rem .5rem 10rem;
+    background-color: #bd7c52 !important;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #fff !important;
+    font-family: 'Knewave', cursive;
+    font-size: 20px;
+}
+
+.navbar-nav .nav-item .nav-link.inactive {
+    color: hsl(0, 0%, 100%, 40%) !important;
+    cursor: default;
+}
+
+.navbar-nav .nav-item .nav-link:not(.inactive):hover {
+    background-color: #9b6543;
+    border-radius: 50%;
+}
+
+.navbar-nav .nav-item .nav-link:not(.inactive) {
+    background-color: transparent;
+    border-radius: 50%;
+}
+
+.navbar-nav .nav-item {
+    margin: 0 10px;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    color: #fff !important;
+    margin-left: 20px;
+    font-family: 'Knewave', cursive;
+}
+
+.navbar-toggler {
+    color: #fff;
+    margin-right: 20px;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    margin-right: 20px !important;
+}
+
+.user-menu .user-icon {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #fff !important;
+}
+
+.user-menu a {
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Knewave', cursive;
+}
+
+
+.profile-container{
+    width:1000px;
+    margin: 100px auto auto auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-profile{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.edit-email{
+    display: flex;
+    flex-direction: column;
+    background: #FFE4D0;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.edit-password{
+    display: flex;
+    flex-direction: column;
+    background: #FFE4D0;
+    padding: 30px;
+    border-radius: 20px;
+    
+}
+
+.delete-account{
+    display: flex;
+    flex-direction: column;
+    background: #FFE4D0;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+button{
+    background-color: #BD7C52;
+    border: rgb(217, 167, 129) ;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 20px 10px 20px ;
+    color: white;
+}
+
+button:hover{
+    background-color: rgba(245, 147, 82, 0.733);
+    border: rgba(245, 147, 82, 0.733);   
+}
+
+.button-container{
+    padding-top: 15px;
+}
+
+.delete-button{
+    background-color: #b83434;
+}
+
+.delete-button:hover{
+    background-color: #973030;
+}
+
+.delete-account-container{
+    margin: auto;
+
+}
+
+.p-6{
+    background: #FFE4D0;
+    padding-top: 10px;
+
+}
+
+.p-6 input::placeholder{
+    color: black;
+}
+
+.delete-button-container{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.fixed.inset-0.overflow-y-auto {
+    padding: 0 !important; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+
+input{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: none;
+    background-color: #e2b495;
+    width: 100%;
+    border-radius: 5px;
+}
+
+label{
+    padding: 10px 0px 10px 0px;
+}
+
+.saved-container{
+    padding-top: 10px;
+    padding-left: 10px;
+}
