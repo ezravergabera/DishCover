@@ -2,3 +2,6 @@
 oldFiles
 png
 *.py
+.lock
+package.json
+package-lock.json
