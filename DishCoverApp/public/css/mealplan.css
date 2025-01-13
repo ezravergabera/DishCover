@@ -89,7 +89,7 @@ main {
 .weekly-plan-container,
 .days-container {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 .create-meal {
@@ -127,6 +127,12 @@ main {
     padding: 20px;
     background-color: #8B4513;
     border-radius: 20px;
+}
+
+.week {
+    margin: 15px;
+    margin-bottom: 20px;
+    font-size: 80px;
 }
 
 .background-color{
@@ -172,7 +178,7 @@ main {
     color: black;
 }
 
-.meal-day1 {
+.meal-day {
     background-color: #8B4513;
     border: 1px solid #e0d7c3;
     border-radius: 5px;
@@ -222,62 +228,21 @@ main {
     border: hidden;
 }
 
-.meal-day2 {
-    background-color: #8B4513;
-    border: 1px solid #e0d7c3;
-    border-radius: 5px;
-    padding: 10px;
-    text-align: left;
-    font-size: 18px;
-    color: white;
+#carouselExample {
+    width: 1250px;
 }
 
-.meal-day3 {
-    background-color: #8B4513;
-    border: 1px solid #e0d7c3;
-    border-radius: 5px;
-    padding: 10px;
-    text-align: left;
-    font-size: 18px;
-    color: white;
+.carousel-control-prev {
+    left: -200px;
 }
 
-.meal-day4 {
-    background-color: #8B4513;
-    border: 1px solid #e0d7c3;
-    border-radius: 5px;
-    padding: 10px;
-    text-align: left;
-    font-size: 18px;
-    color: white;
+.carousel-control-next {
+    right: -200px;
 }
 
-.meal-day5 {
-    background-color: #8B4513;
-    border: 1px solid #e0d7c3;
-    border-radius: 5px;
-    padding: 10px;
-    text-align: left;
-    font-size: 18px;
-    color: white;
-}
-
-.meal-day6 {
-    background-color: #8B4513;
-    border: 1px solid #e0d7c3;
-    border-radius: 5px;
-    padding: 10px;
-    text-align: left;
-    font-size: 18px;
-    color: white;
-}
-
-.meal-day7 {
-    background-color: #8B4513;
-    border: 1px solid #e0d7c3;
-    border-radius: 5px;
-    padding: 10px;
-    text-align: left;
-    font-size: 18px;
-    color: white;
+.carousel-control-prev,
+.carousel-control-next {
+  top: 50%; /* Center the buttons vertically */
+  transform: translateY(-50%); /* Adjust for exact vertical centering */
+  height: 50px; /* Optional: Set a specific height for consistency */
 }
