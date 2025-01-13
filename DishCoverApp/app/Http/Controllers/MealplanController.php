@@ -15,9 +15,11 @@ class MealplanController extends Controller
     {
         $userId = Auth::id();
 
-        $mealplans = Mealplan::where("user_id", $userId)->orderBy('mealplan_day', 'asc')->whereBetween('mealplan_day', [0, 6])->get();
+        $mealplans = Mealplan::where("user_id", $userId)->whereBetween('mealplan_day', [0, 6])->get();
 
-        return view("mealPlan.index", ["mealplans"=> $mealplans]);
+        $weeklymealplans = $mealplans->chunk(7);
+        
+        return view("mealPlan.index", ["weeklymealplans"=> $weeklymealplans]);
     }
 
     /**
@@ -31,7 +33,7 @@ class MealplanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Mealplan $mealplan, Request $request)
+    public function store(Request $request)
     {
         $data = $request->validate([
             "user_id"=> "nullable",
@@ -45,22 +47,35 @@ class MealplanController extends Controller
 
         $userId = Auth::id();
 
-        if (empty($mealplan->where('user_id', $userId)->get()->first())) {
-            $mealplan_day = 0;
-        }
-        else {
-            $day = $mealplan->get()->last()->mealplan_day;
-            $mealplan_day = ($day + 1) % 7;
-        }
+        $existingMealPlans = Mealplan::where('user_id', $userId)
+            ->orderBy('mealplan_day', 'asc')
+            ->get();
+
         
+            
+            if ($existingMealPlans->isEmpty()) {
+                $mealplan_day = 0;
+            } else {
+                $remainingMealPlans = Mealplan::where('user_id', $userId)
+                    ->orderBy('id', 'asc')
+                    ->get();
+
+                $day = 0;
+                foreach ($remainingMealPlans as $remainingMealPlan) {
+                    $remainingMealPlan->update(['mealplan_day' => $day]);
+                    $day = ($day + 1) % 7;
+                }
+                $mealplan_day = $day;
+            }
+            
         $newMealPlan = Mealplan::create([
-            "user_id"=> $userId,
-            "breakfast"=> $data['breakfast'],
-            "lunch"=> $data['lunch'],
-            "dessert"=> $data['dessert'],
-            "snacks"=> $data['snacks'],
-            "dinner"=> $data['dinner'],
-            "mealplan_day"=> $mealplan_day,
+            "user_id" => $userId,
+            "breakfast" => $data['breakfast'],
+            "lunch" => $data['lunch'],
+            "dessert" => $data['dessert'],
+            "snacks" => $data['snacks'],
+            "dinner" => $data['dinner'],
+            "mealplan_day" => $mealplan_day,
         ]);
 
         return redirect(route('mealPlan.index'))->with('success','Meal Plan successfully added.');
@@ -113,8 +128,18 @@ class MealplanController extends Controller
     {
         $mealplan = Mealplan::findOrFail($mealplan->id);
 
-
         $mealplan->delete();
+
+        $userId = Auth::id();
+        $remainingMealPlans = Mealplan::where('user_id', $userId)
+            ->orderBy('id', 'asc')
+            ->get();
+
+        $day = 0;
+        foreach ($remainingMealPlans as $remainingMealPlan) {
+            $remainingMealPlan->update(['mealplan_day' => $day]);
+            $day = ($day + 1) % 7;
+        }
 
         return redirect()->route('mealPlan.index')->with('success', 'Meal Plan deleted successfully.');
     }
