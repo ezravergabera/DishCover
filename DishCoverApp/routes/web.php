@@ -3,6 +3,7 @@
 use App\Http\Controllers\GroceryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\MealplanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +41,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/saved-recipes', [RecipeController::class,'index'])->name('savedRecipes.index');
     Route::post('/search/recipes', [RecipeController::class,'store'])->name('recipes.store');
     Route::delete('/saved-recipes/{recipe}', [RecipeController::class,'destroy'])->name('savedRecipes.destroy');
+
+    Route::get('/meal-plan', [MealplanController::class, "index"])->name('mealPlan.index');
+    Route::post('/meal-plan', [MealplanController::class, "store"])->name('mealPlan.store');
+    Route::get('/meal-plan/{mealplan}/edit', [MealplanController::class, "edit"])->name('mealPlan.edit');
+    Route::put('/meal-plan/{mealplan}', [MealplanController::class, "update"])->name('mealPlan.update');
+    Route::delete('/meal-plan/{mealplan}/delete', [MealplanController::class, 'destroy'])->name('mealPlan.destroy');
 
     Route::get('/grocery-list', [GroceryController::class, 'index'])->name('grocery.index');
     Route::post('/grocery-list', [GroceryController::class, 'store'])->name('grocery.store');
