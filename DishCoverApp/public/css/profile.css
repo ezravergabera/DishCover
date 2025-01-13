@@ -147,13 +147,42 @@ button:hover{
     background-color: #973030;
 }
 
+.delete-account-container{
+    margin: auto;
+
+}
+
+.p-6{
+    background: #FFE4D0;
+    padding-top: 10px;
+
+}
+
+.p-6 input::placeholder{
+    color: black;
+}
+
+.delete-button-container{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.fixed.inset-0.overflow-y-auto {
+    padding: 0 !important; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+
 input{
     display: flex;
     flex-direction: column;
     padding: 10px;
     border: none;
     background-color: #BD7C52;
-    width: 940px;
+    width: 100%;
     border-radius: 5px;
 }
 
