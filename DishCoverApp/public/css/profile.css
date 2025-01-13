@@ -106,33 +106,22 @@ body {
     border-radius: 20px;
 }
 
-.btn-outline-secondary {
-    border-color: #8B4513;
-    color: #8B4513;
-}
-
-.btn-outline-secondary:hover {
-    background-color: #8B4513;
-    color: white;
-
-}
-
 p{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 button{
-    background: rgb(217, 167, 129);
+    background-color: #BD7C52;
     border: rgb(217, 167, 129) ;
     border-radius: 5px;
     border: none;
     padding: 10px 20px 10px 20px ;
+    color: white;
 }
 
 button:hover{
     background-color: rgba(245, 147, 82, 0.733);
-    border: rgba(245, 147, 82, 0.733); 
-    
+    border: rgba(245, 147, 82, 0.733);   
 }
 
 .button-container{
@@ -181,7 +170,7 @@ input{
     flex-direction: column;
     padding: 10px;
     border: none;
-    background-color: #BD7C52;
+    background-color: #e2b495;
     width: 100%;
     border-radius: 5px;
 }
