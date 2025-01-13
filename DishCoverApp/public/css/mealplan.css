@@ -1,0 +1,283 @@
+body {
+    font-family: 'Knewave', cursive;
+    background-color: #fdf5e6;
+    margin-top: 36px;
+    background-image: url('../images/bg.png');
+    background-repeat: repeat;
+    position: relative;
+}
+
+.container {
+    text-align: center;
+}
+
+.navbar {
+    padding: .5rem 10rem .5rem 10rem;
+    background-color: #bd7c52 !important;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #fff !important;
+    font-family: 'Knewave', cursive;
+    font-size: 20px;
+}
+
+.navbar-nav .nav-item .nav-link.inactive {
+    color: hsl(0, 0%, 100%, 40%) !important;
+    cursor: default;
+}
+
+.navbar-nav .nav-item .nav-link:not(.inactive):hover {
+    background-color: #9b6543;
+    border-radius: 50%;
+}
+
+.navbar-nav .nav-item .nav-link:not(.inactive) {
+    background-color: transparent;
+    border-radius: 50%;
+}
+
+.navbar-nav .nav-item {
+    margin: 0 10px;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    color: #fff !important;
+    margin-left: 20px;
+    font-family: 'Knewave', cursive;
+}
+
+.navbar-toggler {
+    color: #fff;
+    margin-right: 20px;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    margin-right: 20px !important;
+}
+
+.user-menu .user-icon {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #fff !important;
+}
+
+.user-menu a {
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Knewave', cursive;
+}
+
+main {
+    text-align: center;
+    padding: 20px;
+}
+
+.meal-planner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+.create-meal-container,
+.weekly-plan-container,
+.days-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.create-meal {
+    display: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.meal-plan-header {
+    display: middle;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.meal-plan-header button.btn-outline-primary1 {
+    color: white;
+    background-color: #8B4513;
+}
+
+.meal-plan-header button.btn-outline-primary2 {
+    color: white;
+    background-color: #8B4513;
+}
+
+.meal-plan-header button.btn-outline-primary1:hover {
+    background-color: #4A7A00;
+}
+
+.meal-plan-header button.btn-outline-primary2:hover {
+    background-color: #4A7A00;
+}
+
+.weekly-meal-plan-container {
+    padding: 20px;
+    background-color: #8B4513;
+    border-radius: 20px;
+}
+
+.background-color{
+    padding: 10px;
+    background-color: #EACBAA;
+    border-radius: 20px;
+}
+
+.weekly-meal-plan {
+    text-align: left;
+}
+
+.weekly-meal-plan h2 {
+    color: #4A7A00;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.weekly-meal-plan p {
+    margin: 5px 0;
+}
+
+.button-add-meal-plan {
+    display: flex;
+    justify-content: right;
+}
+
+.button-add-meal-plan button.btn-success{
+    text-align: right;
+}
+
+.meal-plan-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+}
+
+.background-meal-day {
+    margin-top: 5px;
+    background-color: #EACBAA;
+    padding: 5px;
+    border-radius: 5px;
+    color: black;
+}
+
+.meal-day1 {
+    background-color: #8B4513;
+    border: 1px solid #e0d7c3;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: left;
+    font-size: 18px;
+    color: white;
+}
+
+.Edit-Meals-Delete {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #8B4513;
+}
+
+.Edit-Meals-Delete .Edit-Meals {
+    border-radius: 10px;
+    margin-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #D9A781;
+    color: black;
+    text-decoration: none;
+    border: hidden;
+}
+
+.Edit-Meals-Delete .Edit-Meals:hover {
+    border-radius: 10px;
+    background-color: #4A7A00;
+    color: white;
+    border: hidden;
+}
+
+.Edit-Meals-Delete .Delete {
+    border-radius: 10px;
+    margin-left: 5px;
+    background-color: #D9A781;
+    border: hidden;
+}
+
+.Edit-Meals-Delete .Delete:hover {
+    border-radius: 10px;
+    background-color: #B31700;
+    color: white;
+    border: hidden;
+}
+
+.meal-day2 {
+    background-color: #8B4513;
+    border: 1px solid #e0d7c3;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: left;
+    font-size: 18px;
+    color: white;
+}
+
+.meal-day3 {
+    background-color: #8B4513;
+    border: 1px solid #e0d7c3;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: left;
+    font-size: 18px;
+    color: white;
+}
+
+.meal-day4 {
+    background-color: #8B4513;
+    border: 1px solid #e0d7c3;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: left;
+    font-size: 18px;
+    color: white;
+}
+
+.meal-day5 {
+    background-color: #8B4513;
+    border: 1px solid #e0d7c3;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: left;
+    font-size: 18px;
+    color: white;
+}
+
+.meal-day6 {
+    background-color: #8B4513;
+    border: 1px solid #e0d7c3;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: left;
+    font-size: 18px;
+    color: white;
+}
+
+.meal-day7 {
+    background-color: #8B4513;
+    border: 1px solid #e0d7c3;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: left;
+    font-size: 18px;
+    color: white;
+}

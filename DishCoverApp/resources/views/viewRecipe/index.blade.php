@@ -93,7 +93,7 @@
                 </div>
             </div>
         
-            <div class="text-wrapper">
+            <div class="text-wrapper mb-5">
                 @if(isset($recipe['recipe']))
                     <h3><a href='{{$recipe['recipe']['url']}}' target='_blank'>More Information</a></h2>
                 @elseif(isset($recipe->recipe_image))
