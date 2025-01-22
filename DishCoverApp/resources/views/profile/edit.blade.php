@@ -9,7 +9,7 @@
 @section('title', 'DishCover')
 
 @section('header')
-    @include('components.headerWithAuth')
+    @include('components.headerEditProfilewithAuth')
 @endsection
 
 @section('content')
