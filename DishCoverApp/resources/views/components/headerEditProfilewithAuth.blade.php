@@ -36,10 +36,9 @@
             @auth
                 <i class="fa-solid fa-user user-icon"></i>
                 <form method="POST" action="http://127.0.0.1:8000/logout">
-                            <input type="hidden" name="_token" value="xrolCsoFA3IbYQlaOkn2ocDkQB85YhDM3xDuv9bm" autocomplete="off">
-                            <a class="block w-full px-4 py-2 text-start text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" href="http://127.0.0.1:8000/logout" onclick="event.preventDefault();
-                                                this.closest('form').submit();">Log Out</a>
-                        </form>
+                    <input type="hidden" name="_token" value="xrolCsoFA3IbYQlaOkn2ocDkQB85YhDM3xDuv9bm" autocomplete="off">
+                    <a class="block w-full px-4 py-2 text-start text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" href="http://127.0.0.1:8000/logout" onclick="event.preventDefault();this.closest('form').submit();">Log Out</a>
+                </form>
             @endauth
         </div>
     </div>
