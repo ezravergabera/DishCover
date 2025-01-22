@@ -17,7 +17,7 @@
                 <a class="nav-link inactive">Meal Plan</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link inactive">Grocery List</a>
+                <a class="nav-link inactive">Ingredients</a>
             </li>
         </ul>
         <div class="user-menu">

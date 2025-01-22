@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'DishCover - Grocery List')
+@section('title', 'DishCover - Ingredients')
 
 @section('style')
     <link rel="stylesheet" href="{{ asset('css/grocery.css') }}">
@@ -47,7 +47,7 @@
             </div>
         @endif
 
-        <h1>My Grocery List:</h1>
+        <h1>My Ingredients:</h1>
 
         <form class="add-container" method="POST" action="{{ route('grocery.store') }}">
             @csrf
