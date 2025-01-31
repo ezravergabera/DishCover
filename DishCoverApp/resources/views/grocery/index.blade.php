@@ -53,7 +53,7 @@
             @csrf
             @method('post')
             <input type="text" id="new-task" name="ingredient_name" placeholder="Enter Ingredients"/>
-            <input type="hidden" id="new-task" name="quantity" value="0"/>
+            <input type="hidden" id="new-task" name="quantity" value="1"/>
             <input type="submit" id="add-task" value="Add to the List"/>
         </form>
 
