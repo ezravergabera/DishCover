@@ -95,9 +95,9 @@
         
             <div class="text-wrapper mb-5">
                 @if(isset($recipe['recipe']))
-                    <h3><a href='{{$recipe['recipe']['url']}}' target='_blank'>More Information</a></h2>
+                    <h3><a class="button-more" href='{{$recipe['recipe']['url']}}' target='_blank'>More Information</a></h2>
                 @elseif(isset($recipe->recipe_image))
-                    <h3><a href='{{$recipe->recipe_url}}' target='_blank'>More Information</a></h2>
+                    <h3><a class="button-more" href='{{$recipe->recipe_url}}' target='_blank'>More Information</a></h2>
                 @endif
             </div>
         </div>

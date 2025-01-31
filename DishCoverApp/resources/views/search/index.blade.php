@@ -1,3 +1,41 @@
+<!--  
+Program Title: DishCover: Web-Based Food Recipe Search using Edamam API and Meal Planning
+
+Programmers:
+- Corpuz, Juan Ramon
+- Estoya, Hershey Ann
+- Pascual, Harvey T.
+- Vergabera, Jose Ezra Nazarene B.
+- Yim Gwyneth Anmarie C.
+- Lei, Bernard
+
+Where the Program Fits in the General System Design:
+
+Date Written: 
+Date Revised:
+
+Purpose:
+
+
+Data Structures, Algorithms, and Control:
+
+1. Data Structures:
+    - Classes/Functions: For instances of recipe searching, grocery lists, UI interaction.
+    - 
+2. Algorithms:
+    - String Matchin/Substring Matching: Approach to search recipe that matches the word input. This allows searching for recipe that contain a part of that keyword. 
+    - Advanced Filtering: The API allows filtering filtering by specific ingredients or available grocery list.
+    - Arrays: Used in the system, E.G. meal planning to handle values such as the breakfast, lunch, snacks, and dinner values.
+
+3. Control:
+    - Conditional Logic: Checks input and proceeds the code with the condition met.
+    - Event-Driven: Event-driven handles user actions via event listeners.
+    - Middleware Control: Handles request such as for authority or the login mechanism of the system.
+    - Error Handling: Handles error prompts or messages whether a error condition has met. 
+
+-->
+
+
 @extends('layouts.layout')
 
 @section('title', 'DishCover')

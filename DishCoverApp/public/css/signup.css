@@ -147,17 +147,17 @@ main {
 .btn {
     margin: 30px;
     padding: 20px 100px 20px 100px;
-    background-color: rgba(228, 169, 131, 0.58);
+    background-color: rgba(212, 106, 34, 0.58);
     font-size: 25px;
-    border-color: rgba(228, 169, 131, 0.58);
+    border-color: rgba(212, 106, 34, 0.58);
     color: #8e543a;
     border-radius: 40px;
 }
 
 .btn:hover {
-    background-color: rgba(245, 147, 82, 0.733);
+    background-color: rgba(243, 112, 24, 0.733);
     color: #8e543a;
-    border-color: rgba(228, 169, 131, 0.58);
+    border-color: rgba(243, 112, 24, 0.733);
 }
 
 .input-wrapper i {

@@ -127,6 +127,7 @@ main {
     padding: 20px;
     background-color: #8B4513;
     border-radius: 20px;
+    margin-top: 50%;
 }
 
 .week {
@@ -245,4 +246,9 @@ main {
   top: 50%; /* Center the buttons vertically */
   transform: translateY(-50%); /* Adjust for exact vertical centering */
   height: 50px; /* Optional: Set a specific height for consistency */
+}
+
+.modal-content{
+    background-color: transparent;
+    border: none;
 }

@@ -242,3 +242,11 @@ a {
     text-decoration: none;
     color: #8B4513;
 }
+
+.col-md-4{
+    padding-top: 40px;
+}
+
+.button-more{
+    border: 2px black;
+}
