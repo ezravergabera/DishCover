@@ -20,12 +20,13 @@ Purpose:
 Data Structures, Algorithms, and Control:
 
 1. Data Structures:
-    - Classes/Functions: For instances of recipe searching, grocery lists, UI interaction.
-    - 
+    - Classes/Functions: Used for recipe searching, grocery lists, UI interaction.
+    - Arrays: Used in the system, E.G. meal planning to handle values such as the breakfast, lunch, snacks, and dinner values.
+    - Lists: Used in the system, E.G. ordering the days of week 
+
 2. Algorithms:
     - String Matchin/Substring Matching: Approach to search recipe that matches the word input. This allows searching for recipe that contain a part of that keyword. 
     - Advanced Filtering: The API allows filtering filtering by specific ingredients or available grocery list.
-    - Arrays: Used in the system, E.G. meal planning to handle values such as the breakfast, lunch, snacks, and dinner values.
 
 3. Control:
     - Conditional Logic: Checks input and proceeds the code with the condition met.
