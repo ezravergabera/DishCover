@@ -18,7 +18,12 @@
         <button class="btn btn-outline-secondary" type="button"><img src="{{asset('images/dishcover-3-1.png')}}" height="20px"/></button>
     </div> --}}
 
-    <h1 class="search-results-label">Search Results</h1>
+
+    <h1 class="search-results-label">Search results for "{{ request('query') }}"</h1>
+
+    <div class="search-container">
+        @livewire('search-recipes')
+    </div>
 
     <div class="modal fade" id="statusModal" tabindex="-1" aria-labelledby="statusModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -41,8 +46,8 @@
                     @endif
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
+                            <button type="button" class="close-button" data-bs-dismiss="modal">Close</button>
+                        </div>
             </div>
         </div>
     </div>
@@ -59,7 +64,7 @@
                                         <img src="{{ $hit['recipe']['image'] }}" class="card-img-top" alt="{{ $hit['recipe']['label'] ?? 'Recipe Image' }}">
                                         @endif
                                     <div class="overlay">
-                                        <a href="{{ route('viewRecipeJSON.index', ['recipe' => json_encode($hit), 'name' => $hit['recipe']['label']]) }}" target="_blank" class="button">View</a>
+                                        <button class="button-overlay"><a href="{{ route('viewRecipeJSON.index', ['recipe' => json_encode($hit), 'name' => $hit['recipe']['label']]) }}" class="button">View</a></button>
                                         @auth
                                             <form method="POST" action="{{ route('recipes.store') }}">
                                                 @csrf
@@ -68,7 +73,7 @@
                                                 <input type="hidden" name="recipe_label" value="{{ $hit['recipe']['label'] }}">
                                                 <input type="hidden" name="recipe_ingredients" value="{{ json_encode($hit['recipe']['ingredientLines']) }}">
                                                 <input type="hidden" name="recipe_url" value="{{ $hit['recipe']['url'] }}">
-                                                <input type="submit" class="button" value="Save Recipe"></input>
+                                                <input type="submit" class="button-overlay" value="Save Recipe"></input>
                                             </form>
                                         @else
                                             <button class="button-inactive">Save Recipe</button>

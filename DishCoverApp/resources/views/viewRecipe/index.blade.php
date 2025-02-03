@@ -39,6 +39,8 @@
             </div>
         </div>
 
+        <a href="{{ url()->previous() }}" class="back-button">Go Back</a>
+        
         <div class="container my-4 view p-3" style="margin: 10px; border-radius: 50px;">
             <div class="row">
                 <div class="col-md-4">
@@ -95,9 +97,9 @@
         
             <div class="text-wrapper mb-5">
                 @if(isset($recipe['recipe']))
-                    <h3><a class="button-more" href='{{$recipe['recipe']['url']}}' target='_blank'>More Information</a></h2>
+                    <h3><a class="button-more" href='{{$recipe['recipe']['url']}}' >More Information</a></h2>
                 @elseif(isset($recipe->recipe_image))
-                    <h3><a class="button-more" href='{{$recipe->recipe_url}}' target='_blank'>More Information</a></h2>
+                    <h3><a class="button-more" href='{{$recipe->recipe_url}}' >More Information</a></h2>
                 @endif
             </div>
         </div>

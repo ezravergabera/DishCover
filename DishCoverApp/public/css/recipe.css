@@ -208,7 +208,6 @@ main {
     margin: 5px;
     padding: 10px 20px;
     width: 10rem;
-    background-color: hsl(23, 40%, 44%, 50%);
     color: #FFEEE3;
     font-size: large;
     border: none;
@@ -252,4 +251,50 @@ main {
     bottom: 0;
     right: 0;
     z-index: 1;
+}
+
+.search-container{
+    margin-bottom: 20px;
+    margin-top: -10px;
+}
+
+.close-button{
+    color: #58151c;
+    background-color: rgb(240, 185, 178);
+    padding: 8px 15px 8px 15px;
+    border-color: rgb(240, 185, 178);
+    border: 1px rgb(240, 181, 174); ;
+    border-radius: 8px;
+}
+
+.close-button:hover{
+    color: #58151c;
+    background-color: rgb(240, 150, 138);
+    padding: 8px 15px 8px 15px;
+    border-color: rgb(240, 150, 138);
+    border: 1px rgb(240, 174, 167);
+    border-radius: 8px;
+}
+
+
+.button-overlay{
+    margin: 5px;
+    color: #FFEEE3;
+    background-color: hsl(23, 40%, 44%, 50%);
+    padding: 10px 20px;
+    width: 10rem;
+    border-color: hsl(23, 40%, 44%, 50%);
+    border: 1px hsl(23, 40%, 44%, 50%);
+    border-radius: 8px;
+}
+
+.button-overlay:hover{
+    margin: 5px;
+    color: #FFEEE3;
+    background-color: hsla(23, 75%, 47%, 0.5);
+    padding: 10px 20px;
+    width: 10rem;
+    border-color: hsla(23, 75%, 47%, 0.5);
+    border: 1px hsla(23, 75%, 47%, 0.5);
+    border-radius: 8px;
 }
