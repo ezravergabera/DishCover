@@ -14,7 +14,7 @@ Where the Program Fits in the General System Design:
 Date Written: 
 Date Revised:
 
-Purpose:
+Purpose: The purpose of this tool is to help college students that is living the dormitories 
 
 
 Data Structures, Algorithms, and Control:

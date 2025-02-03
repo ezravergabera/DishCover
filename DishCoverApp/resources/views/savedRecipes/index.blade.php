@@ -39,7 +39,7 @@
                     @endif
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="close-button" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -60,11 +60,11 @@
                                     <img src="{{ $recipe->recipe_image }}" class="card-img-top" alt="{{ $recipe->recipe_label }}">
                                 @endif
                                 <div class="overlay">
-                                    <a href="{{ route('viewRecipe.index', ['recipe' => $recipe, 'name' => $recipe->recipe_label]) }}" target="_blank" class="button">View</a>
+                                <button class="button-overlay"><a href="{{ route('viewRecipe.index', ['recipe' => $recipe, 'name' => $recipe->recipe_label]) }}" class="button">View</a></button>
                                     <form method="POST" action="{{ route('savedRecipes.destroy', ['recipe' => $recipe]) }}">
                                         @csrf
                                         @method('delete')
-                                        <input type="submit" class="button" value="Remove Recipe"></input>
+                                        <input type="submit" class="button-overlay" value="Remove Recipe"></input>
                                     </form>
                                 </div>
                             </div>

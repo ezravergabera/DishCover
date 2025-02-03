@@ -248,5 +248,42 @@ a {
 }
 
 .button-more{
-    border: 2px black;
+    border: none;
+    background-color: #d1a98d;
+    color:#8B4513;
+    padding: 10px 15px 10px 15px;
+    border-radius: 15px;
+}
+
+.button-more:hover{
+    border: none;
+    background-color: #cf9c78;
+    color:#8B4513;
+    padding: 10px 15px 10px 15px;
+    border-radius: 15px;
+}
+
+
+.back-button{
+    display:flex;
+    justify-content: left;
+    width: 90px;
+    margin-left: 10px;
+    border: none;
+    background-color: #d1a98d;
+    color:#8B4513;
+    padding: 10px 15px 10px 15px;
+    border-radius: 15px;
+}
+
+.back-button:hover{
+    border: none;
+    background-color: #cf9c78;
+    color:#8B4513;
+    padding: 10px 15px 10px 15px;
+    border-radius: 15px;
+}
+
+.text-wrapper{
+    margin-top: 20px;
 }
