@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <a href="{{ url()->previous() }}" class="back-button">Go Back</a>
+        <a href="{{ url()->previous() }}" class="back-button">Back</a>
         
         <div class="container my-4 view p-3" style="margin: 10px; border-radius: 50px;">
             <div class="row">
