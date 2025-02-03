@@ -266,8 +266,8 @@ a {
 
 .back-button{
     display:flex;
-    justify-content: left;
-    width: 90px;
+    justify-content: center;
+    width: 70px;
     margin-left: 10px;
     border: none;
     background-color: #d1a98d;
