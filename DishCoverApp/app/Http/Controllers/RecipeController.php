@@ -18,8 +18,12 @@ class RecipeController extends Controller
 
     public function search(Request $request)
     {
+        session()->forget('recipes');
+        session()->forget('recipe');
         $query = $request->input('query');
         $recipes = $this->edamamService->searchRecipes($query);
+
+        session(['recipes' => $recipes]);
 
         return view('search.recipes', ['recipes' => $recipes]);
     }
@@ -78,12 +82,19 @@ class RecipeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function showJSON(Request $request)
+    public function showJSON(Request $request, $name)
     {
-        $data = $request->input('recipe');
-        $recipe = json_decode($data, true);
+        $recipes = session('recipes')['hits'];
 
-        return view('viewRecipe.index', ['recipe'=> $recipe]);
+        foreach($recipes as $recipe) {
+            if($recipe['recipe']['label'] == $name) {
+                $matched_recipe = $recipe['recipe'];
+            }
+        }
+
+        session(['recipe' => $matched_recipe]);
+
+        return view('viewRecipe.index', ['name' => $name]);
     }
 
     public function show(Recipe $recipe, $name)
