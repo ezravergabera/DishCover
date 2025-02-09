@@ -206,12 +206,24 @@ h1 {
     margin-left: 5px;
 }
 
-.close-button {
-    position: fixed;
-    top: 70px;
-    right: 10px;
-    z-index: 1000;
+.close-button{
+    color: #58151c;
+    background-color: rgb(240, 185, 178);
+    padding: 8px 15px 8px 15px;
+    border-color: rgb(240, 185, 178);
+    border: 1px rgb(240, 181, 174); ;
+    border-radius: 8px;
 }
+
+.close-button:hover{
+    color: #58151c;
+    background-color: rgb(240, 150, 138);
+    padding: 8px 15px 8px 15px;
+    border-color: rgb(240, 150, 138);
+    border: 1px rgb(240, 174, 167);
+    border-radius: 8px;
+}
+
 h2{
     color: #8B4513;
 }

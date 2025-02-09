@@ -64,7 +64,7 @@
                                         <img src="{{ $hit['recipe']['image'] }}" class="card-img-top" alt="{{ $hit['recipe']['label'] ?? 'Recipe Image' }}">
                                         @endif
                                     <div class="overlay">
-                                        <button class="button-overlay"><a href="{{ route('viewRecipeJSON.index', ['recipe' => json_encode($hit), 'name' => $hit['recipe']['label']]) }}" class="button">View</a></button>
+                                        <button class="button-overlay"><a href="{{ route('viewRecipeJSON.index', ['name' => $hit['recipe']['label']]) }}" class="button">View</a></button>
                                         @auth
                                             <form method="POST" action="{{ route('recipes.store') }}">
                                                 @csrf
