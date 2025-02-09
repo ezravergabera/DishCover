@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <a href="{{ url()->previous() }}" class="back-button">Back</a>
+        <button id="back-button" class="back-button" onclick="window.history.back();">Back</button>
         
         <div class="container my-4 view p-3" style="margin: 10px; border-radius: 50px;">
             <div class="row">
