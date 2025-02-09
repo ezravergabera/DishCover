@@ -84,12 +84,22 @@ class RecipeController extends Controller
      */
     public function showJSON(Request $request, $name)
     {
+        session(['bookmark' => false]);
+        $userId = Auth::id();
         $recipes = session('recipes')['hits'];
 
         foreach($recipes as $recipe) {
             if($recipe['recipe']['label'] == $name) {
                 $matched_recipe = $recipe['recipe'];
             }
+        }
+
+        $bookmark = Recipe::where('recipe_label', $matched_recipe['label'])
+                            ->where('user_id', $userId)
+                            ->first();
+
+        if($bookmark) {
+            session(['bookmark' => true]);
         }
 
         session(['recipe' => $matched_recipe]);

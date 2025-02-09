@@ -12,6 +12,7 @@
 
 @php
     $json_recipe = session('recipe');
+    $bookmark = session('bookmark');
 @endphp
 
 @section('content')
@@ -65,7 +66,7 @@
                                 <input type="hidden" name="recipe_label" value="{{ $json_recipe['label'] }}">
                                 <input type="hidden" name="recipe_ingredients" value="{{ json_encode($json_recipe['ingredientLines']) }}">
                                 <input type="hidden" name="recipe_url" value="{{ $json_recipe['url'] }}">
-                                <button type="submit" class="btn"><img src="{{asset('images/save-button.svg')}}"/></button>
+                                <button type="submit" class="btn"><img src="{{$bookmark ? asset('images/save-button.svg') : asset('images/save-button-hollow.png')}}"/></button>
                             </form>
                         @elseif(isset($recipe->recipe_image))
                             <h1 class="me-auto">{{$recipe->recipe_label}}</h1>
